@@ -36,4 +36,20 @@ public class SubjectController {
         SubjectResponse subjectResponse = subjectService.updateSubject(id,subject);
         return new ResponseEntity<>(subjectResponse,HttpStatus.ACCEPTED);
     }
+
+    @PutMapping("/{subjectId}/students/{studentId}")
+    public ResponseEntity<?> enrollStudentToSubject(
+            @PathVariable Long subjectId,
+            @PathVariable Long studentId){
+        SubjectResponse enroll = subjectService.enrollStudentToSubject(subjectId,studentId);
+        return new ResponseEntity<>(enroll,HttpStatus.OK);
+    }
+
+    @PutMapping("/{subjectId}/teacher/{teacherId}")
+    public ResponseEntity<?> assignTeacherToSubject(
+            @PathVariable Long subjectId,
+            @PathVariable Long teacherId){
+        SubjectResponse enroll = subjectService.assignTeacherToSubject(subjectId,teacherId);
+        return new ResponseEntity<>(enroll,HttpStatus.OK);
+    }
 }

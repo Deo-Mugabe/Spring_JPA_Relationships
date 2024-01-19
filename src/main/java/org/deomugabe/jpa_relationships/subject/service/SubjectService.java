@@ -11,4 +11,8 @@ public interface SubjectService {
     SubjectResponse createSubject(CreateSubject subject);
 
     SubjectResponse updateSubject(Long id, CreateSubject subject);
+
+    SubjectResponse enrollStudentToSubject(Long subjectId, Long studentId);
+
+    SubjectResponse assignTeacherToSubject(Long subjectId, Long teacherId);
 }
